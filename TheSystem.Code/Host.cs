@@ -14,6 +14,7 @@ namespace TheSystem.Code
         public void RegisterAll()
         {
             _registrar.Register(SomeQuery.CreateInstance);
+            _registrar.Register(AnotherQuery.CreateInstance);
         }
     }
 }

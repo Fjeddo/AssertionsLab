@@ -26,7 +26,8 @@ namespace Tests
 
             host.RegisterAll();
 
-            registrar.Received().Register(SomeQuery.CreateInstance);
+            registrar.Received(1).Register(SomeQuery.CreateInstance);
+            registrar.Received(1).Register(AnotherQuery.CreateInstance);
         }
     }
 }
