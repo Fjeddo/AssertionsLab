@@ -50,6 +50,20 @@ namespace Tests
             thirdSender.Bus.Should().BeSameAs(fourthSender.Bus);
             thirdSender.Bus.Should().BeSameAs(secondSender.Bus);
             thirdSender.Bus.Should().BeSameAs(firstSender.Bus);
+
+            // Yet another way using no scopes, maybe the most straight forward?
+            var anotherSender = serviceProvider.GetService<ISender>();
+
+            // Assertions
+            anotherSender.Should().NotBeSameAs(firstSender);
+            anotherSender.Should().NotBeSameAs(secondSender);
+            anotherSender.Should().NotBeSameAs(thirdSender);
+            anotherSender.Should().NotBeSameAs(fourthSender);
+
+            anotherSender.Bus.Should().BeSameAs(firstSender.Bus);
+            anotherSender.Bus.Should().BeSameAs(secondSender.Bus);
+            anotherSender.Bus.Should().BeSameAs(thirdSender.Bus);
+            anotherSender.Bus.Should().BeSameAs(fourthSender.Bus);
         }
     }
 
